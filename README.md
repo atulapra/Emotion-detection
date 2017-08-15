@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project aims to find the emotion on faces with webcam using deep convolutional neural networks. This algorithm is based on the research [paper](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) attached.
+This project aims to classify the emotion on a person's face into one of seven categories, using deep convolutional neural networks. This algorithm is based on the research [paper](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) attached.
 
 ## Compatibility
 
@@ -20,6 +20,16 @@ This project aims to find the emotion on faces with webcam using deep convolutio
 * To run the program to detect emotions only in one face, type `python em_model.py singleface`.
 
 * To run the program to detect emotions on all faces close to camera, type `python em_model.py multiface`.
+
+## Algorithm
+
+* First, we use haar cascade to detect faces in each frame of the webcam feed.
+
+* The region of image containing the face is resized to 48x48 and is passed as input to the ConvNet.
+
+* The network outputs a list of softmax scores for the seven classes.
+
+* The emotion with maximum score is displayed.
 
 ## Example Output
 
