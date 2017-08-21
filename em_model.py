@@ -72,7 +72,7 @@ class EMR:
 if __name__ == "__main__":
   print("\n------------Emotion Detection Program------------\n")
   network = EMR()
-  if sys.argv[1] == 'singleface'
+  if sys.argv[1] == 'singleface':
     import singleface
-  if sys.argv[1] == 'multiface'
+  if sys.argv[1] == 'multiface':
     import multiface
