@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This project aims to classify the emotion on a person's face into one of seven categories, using deep convolutional neural networks. This algorithm is based on the [research paper](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) attached.
+This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This algorithm is based on the [research paper](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) attached.
 
 ## Compatibility
 
-* This code has been tested on Ubuntu 16.04 LTS and is most likely compatible on all platforms.
+* This code has been tested on **Ubuntu 16.04 LTS** and is most likely compatible on all platforms.
 
 * **Dependencies**: Python 3.5+, [OpenCV 3.0](http://opencv.org/opencv-3-0.html), [TFlearn](http://tflearn.org/). 
 
