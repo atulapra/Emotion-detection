@@ -23,11 +23,11 @@ This project aims to classify the emotion on a person's face into one of seven c
 
 ## Algorithm
 
-* First, we use haar cascade to detect faces in each frame of the webcam feed.
+* First, we use **haar cascade** to detect faces in each frame of the webcam feed.
 
-* The region of image containing the face is resized to 48x48 and is passed as input to the ConvNet.
+* The region of image containing the face is resized to **48x48** and is passed as input to the ConvNet.
 
-* The network outputs a list of softmax scores for the seven classes.
+* The network outputs a list of **softmax scores** for the seven classes.
 
 * The emotion with maximum score is displayed.
 
