@@ -12,10 +12,7 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 ## Usage
 
-* Clone the repository and download the following files(trained models) from these links :
-  * [data](https://drive.google.com/open?id=0B8_K9DW3E9PlV0phWlFfRGFfcEk)
-  * [index](https://drive.google.com/open?id=0B8_K9DW3E9PlSmJySGM2Z0lwdlU)
-  * [meta](https://drive.google.com/open?id=0B8_K9DW3E9Plb0ZVeHg0cEJuNlE)
+* Clone the repository and download the trained model files from [here](https://drive.google.com/file/d/1rdgSdMcXIvfoPmf702UCtH6RNcvkKFu7/view?usp=sharing), extract it and copy the files into the current working directory. 
 
 * To run the program to detect emotions only in one face, type `python em_model.py singleface`.
 
