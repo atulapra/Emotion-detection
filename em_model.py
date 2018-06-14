@@ -44,14 +44,16 @@ class EMR:
       self.network = fully_connected(self.network, len(self.target_classes), activation = 'softmax')
       print("Output",self.network.shape[1:])
       print('\n')
+      # Generates a TrainOp which contains the information about optimization process - optimizer, loss function, etc
       self.network = regression(self.network,optimizer = 'momentum',metric = 'accuracy',loss = 'categorical_crossentropy')
-      self.model = tflearn.DNN(self.network,checkpoint_path = 'model_1_nimish',max_checkpoints = 1,tensorboard_verbose = 2)
+      # Creates a model instance.
+      self.model = tflearn.DNN(self.network,checkpoint_path = 'model_1_atul',max_checkpoints = 1,tensorboard_verbose = 2)
+      # Loads the model weights from the checkpoint
       self.load_model()
 
   def predict(self, image):
     """
-    Image is resized to 48x48
-    model.predict() is an inbuilt function in tflearn. 
+    Image is resized to 48x48, and predictions are returned.
     """
     if image is None:
       return None
@@ -61,10 +63,9 @@ class EMR:
   def load_model(self):
     """
     Loads pre-trained model.
-    model.load() is an inbuilt function in tflearn
     """
-    if isfile("model_1_nimish.tflearn.meta"):
-      self.model.load("model_1_nimish.tflearn")
+    if isfile("model_1_atul.tflearn.meta"):
+      self.model.load("model_1_atul.tflearn")
       print('\n---> Pre-trained model loaded')
     else:
         print("---> Couldn't find model")
@@ -74,5 +75,6 @@ if __name__ == "__main__":
   network = EMR()
   if sys.argv[1] == 'singleface':
     import singleface
+    print('In singleface')
   if sys.argv[1] == 'multiface':
     import multiface
