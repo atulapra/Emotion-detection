@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This algorithm is based on the [research paper](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) attached.
+This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This algorithm is based on the [research paper](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) from [emotion-recognition-neural-networks](https://github.com/isseu/emotion-recognition-neural-networks).
 
 ## Compatibility
 
@@ -31,10 +31,3 @@ This project aims to classify the emotion on a person's face into one of **seven
 ## Example Output
 
 ![Happy](examples/happy.png)
-
-## References
-
-* [Emotion-recognition-and-prediction](https://github.com/nimish1512/Emotion-recognition-and-prediction)
-
-* [Emotion-recognition-neural-networks](https://github.com/isseu/emotion-recognition-neural-networks)
-
