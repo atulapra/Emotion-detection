@@ -65,10 +65,6 @@ while True:
     # compute softmax probabilities
     result = network.predict(format_image(frame))
     if result is not None:
-        if result[0][6] < 0.6:
-            result[0][6] = result[0][6] - 0.12
-            result[0][:3] += 0.01
-            result[0][4:5] += 0.04
         # write the different emotions and have a bar to indicate probabilities for each class
         for index, emotion in enumerate(EMOTIONS):
             cv2.putText(frame, emotion, (10, index * 20 + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1);
