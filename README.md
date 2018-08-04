@@ -2,8 +2,7 @@
 
 ## Introduction
 
-This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This repo is an implementation of [this.](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper.
-
+This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This repo is an implementation of [this](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper.
 ## Compatibility
 
 * This code has been tested on **Ubuntu 16.04 LTS** and is most likely compatible on all platforms.
