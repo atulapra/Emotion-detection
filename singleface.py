@@ -1,7 +1,10 @@
 import cv2
 import sys
-from em_model import EMR
 import numpy as np
+from em_model import EMR
+
+# prevents opencl usage and unnecessary logging messages
+cv2.ocl.setUseOpenCL(False)
 
 EMOTIONS = ['angry', 'disgusted', 'fearful', 'happy', 'sad', 'surprised', 'neutral']
 
@@ -60,7 +63,7 @@ while True:
     ret, frame = cap.read()
     facecasc = cv2.CascadeClassifier('haarcascade_files/haarcascade_frontalface_default.xml')
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = facecasc.detectMultiScale(gray, 1.3, 5)
+    faces = facecasc.detectMultiScale(gray,scaleFactor=1.3, minNeighbors=5)
 
     # compute softmax probabilities
     result = network.predict(format_image(frame))
@@ -75,20 +78,13 @@ while True:
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(frame,EMOTIONS[maxindex],(10,360), font, 2,(255,255,255),2,cv2.LINE_AA) 
         face_image = feelings_faces[maxindex]
-        print(face_image[:,:,3])
 
         for c in range(0, 3):
-            # the shape of face_image is (x,y,4)
-            # the fourth channel is 0 or 1
-            # in most cases it is 0, so, we assign the roi to the emoji
-            # you could also do:
-            # frame[200:320,10:130,c] = frame[200:320, 10:130, c] * (1.0 - face_image[:, :, 3] / 255.0)
-            frame[200:320, 10:130, c] = face_image[:,:,c] * (face_image[:, :, 3] / 255.0) +  frame[200:320, 10:130, c] * (1.0 - face_image[:, :, 3] / 255.0)
+            # The shape of face_image is (x,y,4). The fourth channel is 0 or 1. In most cases it is 0, so, we assign the roi to the emoji.
+            # You could also do: frame[200:320,10:130,c] = frame[200:320, 10:130, c] * (1.0 - face_image[:, :, 3] / 255.0)
+            frame[200:320, 10:130, c] = face_image[:,:,c]*(face_image[:, :, 3] / 255.0) +  frame[200:320, 10:130, c] * (1.0 - face_image[:, :, 3] / 255.0)
 
-    if not len(faces) > 0:
-        # do nothing if no face is detected
-        a = 1
-    else:
+    if len(faces) > 0:
         # draw box around face with maximum area
         max_area_face = faces[0]
         for face in faces:
