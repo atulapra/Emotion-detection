@@ -16,6 +16,19 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 * To run the program to detect emotions on all faces close to camera, type `python em_model.py multiface`. Note that this sometimes generates incorrect predictions.
 
+* The folder structure is of the form:
+  Emotion-detection:
+  * emojis (folder)
+  * examples (folder)
+  * haarcascade_files (folder)
+  * `em_model.py` (file)
+  * `multiface.py` (file)
+  * `singleface.py` (file)
+  * `README.md` (file)
+  * `model_1_atul.tflearn.data-00000-of-00001` (file)
+  * `model_1_atul.tflearn.index` (file)
+  * `model_1_atul.tflearn.meta` (file)
+
 ## Algorithm
 
 * First, we use **haar cascade** to detect faces in each frame of the webcam feed.
