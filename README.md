@@ -17,6 +17,7 @@ This project aims to classify the emotion on a person's face into one of **seven
 * To run the program to detect emotions on all faces close to camera, type `python em_model.py multiface`. Note that this sometimes generates incorrect predictions.
 
 * The folder structure is of the form:
+
   Emotion-detection:
   * emojis (folder)
   * examples (folder)
