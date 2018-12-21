@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This repository is an implementation of [this](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper.
+This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This repository is an implementation of [this](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper. The model is trained on the FER-2013 dataset available [here.](https://anonfile.com/bdj3tfoeba/data_zip)
 
 ## Dependencies
 
@@ -12,23 +12,23 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 * Clone the repository and download the **trained model** files from [here](https://drive.google.com/file/d/1rdgSdMcXIvfoPmf702UCtH6RNcvkKFu7/view?usp=sharing), extract it and copy the files into the current working directory.
 
-* To run the program to detect emotions only in **one face**, type `python em_model.py singleface`.
+* To run the program to detect emotions only in **one face**, type `python model.py singleface`.
 
-* To run the program to detect emotions on all faces close to camera, type `python em_model.py multiface`. Note that this sometimes generates incorrect predictions.
+* To run the program to detect emotions on all faces close to camera, type `python model.py multiface`. Note that this sometimes generates incorrect predictions.
 
 * The folder structure is of the form:
 
   Emotion-detection:
   * emojis (folder)
   * examples (folder)
-  * haarcascade_files (folder)
-  * `em_model.py` (file)
+  * `model.py` (file)
   * `multiface.py` (file)
   * `singleface.py` (file)
   * `README.md` (file)
   * `model_1_atul.tflearn.data-00000-of-00001` (file)
   * `model_1_atul.tflearn.index` (file)
   * `model_1_atul.tflearn.meta` (file)
+  * `haarcascade_frontalface_default.xml` (file)
 
 ## Algorithm
 
@@ -43,3 +43,7 @@ This project aims to classify the emotion on a person's face into one of **seven
 ## Example Output
 
 ![Happy](examples/happy.png)
+
+## Note
+
+A Keras version of this repository is in development and will be released soon.

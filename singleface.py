@@ -1,7 +1,7 @@
 import cv2
 import sys
 import numpy as np
-from em_model import EMR
+from model import EMR
 
 # prevents opencl usage and unnecessary logging messages
 cv2.ocl.setUseOpenCL(False)
@@ -9,7 +9,7 @@ cv2.ocl.setUseOpenCL(False)
 EMOTIONS = ['angry', 'disgusted', 'fearful', 'happy', 'sad', 'surprised', 'neutral']
 
 # initialize the cascade
-cascade_classifier = cv2.CascadeClassifier('haarcascade_files/haarcascade_frontalface_default.xml')  
+cascade_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')  
 
 def format_image(image):
     """
