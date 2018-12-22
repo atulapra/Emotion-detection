@@ -10,7 +10,7 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 ## Usage
 
-There are two versions of this repository - written using TFLearn and Keras. Usage instructions for each of these versions are given below. Both versions work equally well if you want to detct emotions only one face in the image. However, I suggest you use the keras implementation, since it provides better results if there is more than one face.
+There are two versions of this repository - written using TFLearn and Keras. Usage instructions for each of these versions are given below. Both versions work equally well if you want to detect emotions only one face in the image. However, I suggest you use the keras implementation, since it provides better results if there is more than one face.
 
 ### TFLearn
 
