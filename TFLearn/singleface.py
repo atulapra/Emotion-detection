@@ -8,9 +8,6 @@ cv2.ocl.setUseOpenCL(False)
 
 EMOTIONS = ['angry', 'disgusted', 'fearful', 'happy', 'sad', 'surprised', 'neutral']
 
-# initialize the cascade
-cascade_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')  
-
 def format_image(image):
     """
     Function to format frame
@@ -61,7 +58,7 @@ for index, emotion in enumerate(EMOTIONS):
 while True:
     # Again find haar cascade to draw bounding box around face
     ret, frame = cap.read()
-    facecasc = cv2.CascadeClassifier('haarcascade_files/haarcascade_frontalface_default.xml')
+    facecasc = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = facecasc.detectMultiScale(gray,scaleFactor=1.3, minNeighbors=5)
 

@@ -8,9 +8,6 @@ cv2.ocl.setUseOpenCL(False)
 
 EMOTIONS = ['angry', 'disgusted', 'fearful', 'happy', 'sad', 'surprised', 'neutral']
 
-# initialize the cascade
-cascade_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')  
-
 # Initialize object of EMR class
 network = EMR()
 network.build_network()
@@ -26,7 +23,7 @@ for index, emotion in enumerate(EMOTIONS):
 while True:
     # Again find haar cascade to draw bounding box around face
     ret, frame = cap.read()
-    facecasc = cv2.CascadeClassifier('haarcascade_files/haarcascade_frontalface_default.xml')
+    facecasc = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = facecasc.detectMultiScale(gray, 1.3, 5)
     if len(faces > 0):
