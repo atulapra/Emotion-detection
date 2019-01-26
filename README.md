@@ -2,15 +2,15 @@
 
 ## Introduction
 
-This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This repository is an implementation of [this](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper. The model is trained on the FER-2013 dataset which was published on International Conference on Machine Learning (ICML). This dataset consists of 35887 grayscale, 48x48 sized face images with seven emotions - angry, disgusted, fearful, happy, neutral, sad and surprised.
+This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This repository is an implementation of [this](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper. The model is trained on the **FER-2013** dataset which was published on International Conference on Machine Learning (ICML). This dataset consists of 35887 grayscale, 48x48 sized face images with seven emotions - angry, disgusted, fearful, happy, neutral, sad and surprised.
 
 ## Dependencies
 
-* Python 3.5+, [OpenCV 3.0](http://opencv.org/opencv-3-0.html), [TFlearn](http://tflearn.org/), [Keras](https://keras.io/)
+* Python 3.6, [OpenCV 3.0](http://opencv.org/opencv-3-0.html), [TFlearn](http://tflearn.org/), [Keras](https://keras.io/)
 
 ## Usage
 
-There are two versions of this repository - written using TFLearn and Keras. Usage instructions for each of these versions are given below. Both versions work equally well if you want to detect emotions only one face in the image. However, I suggest you use the keras implementation, since it provides better results if there is more than one face.
+There are two versions of this repository - written using **TFLearn** and **Keras**. Usage instructions for each of these versions are given below. Both versions work equally well if you want to detect emotions only one face in the image. However, I suggest you use the keras implementation, since it provides better results if there is more than one face.
 
 ### TFLearn
 

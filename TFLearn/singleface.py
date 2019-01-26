@@ -19,6 +19,7 @@ def format_image(image):
         # Image read from buffer
         image = cv2.imdecode(image, cv2.CV_LOAD_IMAGE_GRAYSCALE)
 
+    cascade_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     faces = cascade_classifier.detectMultiScale(image,scaleFactor = 1.3 ,minNeighbors = 5)
 
     if not len(faces) > 0:
