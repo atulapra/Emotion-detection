@@ -7,13 +7,13 @@ from tflearn.layers.merge_ops import merge
 from tflearn.layers.normalization import local_response_normalization
 from tflearn.layers.estimator import regression
 from os.path import isfile, join
-import random
 import sys
 import tensorflow as tf
 import os
 
 # prevents appearance of tensorflow warnings
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+tf.logging.set_verbosity(tf.logging.ERROR)
 
 class EMR:
   def __init__(self):
@@ -43,6 +43,7 @@ class EMR:
       print("Fully connected",self.network.shape[1:])
       self.network = fully_connected(self.network, len(self.target_classes), activation = 'softmax')
       print("Output         ",self.network.shape[1:])
+      print("\n")
       # Generates a TrainOp which contains the information about optimization process - optimizer, loss function, etc
       self.network = regression(self.network,optimizer = 'momentum',metric = 'accuracy',loss = 'categorical_crossentropy')
       # Creates a model instance.

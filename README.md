@@ -6,7 +6,8 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 ## Dependencies
 
-* Python 3.6, [OpenCV 3.0](http://opencv.org/opencv-3-0.html), [TFlearn](http://tflearn.org/), [Keras](https://keras.io/)
+* Python 3.6, [OpenCV 3 or 4](https://opencv.org/), [Tensorflow](https://www.tensorflow.org/), [TFlearn](http://tflearn.org/), [Keras](https://keras.io/)
+* To install the required packages, run `pip install -r requirements.txt`.
 
 ## Usage
 
