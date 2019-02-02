@@ -36,6 +36,10 @@ There are two versions of this repository - written using **TFLearn** and **Kera
 
 * Download the FER-2013 dataset from [here](https://anonfile.com/bdj3tfoeba/data_zip) and unzip it inside the Keras folder.
 
+* If you want to train this model or train after making changes to the model, use `python kerasmodel.py --mode train`.
+
+* If you want to view the predictions without training again, you can download my pre-trained model `(model.h5)` from [here](https://anonfile.com/i7k3x0oab4/model_h5) and then run `python kerasmodel.py --mode display`.
+
 * The folder structure is of the form:  
   Keras:
   * data (folder)
@@ -43,13 +47,9 @@ There are two versions of this repository - written using **TFLearn** and **Kera
   * `haarcascade_frontalface_default.xml` (file)
   * `model.h5` (file)
 
-* If you want to train this model or train after making changes to the model, use `python kerasmodel.py --mode train`.
-
-* If you want to view the predictions without training again, you can download my pre-trained model from [here](https://anonfile.com/i7k3x0oab4/model_h5) and then run `python kerasmodel.py --mode display`.
-
 * This implementation by default detects emotions on all faces in the webcam feed.
 
-* With a simple 4-layer CNN, the test accuracy stopped decreasing at around 50 epochs at an accuracy of around 63.2%. The top accuracies in the 2013 Kaggle competition for this were 71.16%, 69.27%, 68.82%, 67.48%.
+* With a simple 4-layer CNN, the test accuracy stopped increasing at around 50 epochs at an accuracy of 63.2%. The top accuracies in the 2013 Kaggle competition for this were 71.16%, 69.27%, 68.82%, 67.48%.
 
 ![Accuray plot](accuracy.png)
 
@@ -71,10 +71,10 @@ There are two versions of this repository - written using **TFLearn** and **Kera
 
 ## References
 
-"Challenges in Representation Learning: A report on three machine learning contests." I Goodfellow, D Erhan, PL Carrier, A Courville, M Mirza, B
-Hamner, W Cukierski, Y Tang, DH Lee, Y Zhou, C Ramaiah, F Feng, R Li,
-X Wang, D Athanasakis, J Shawe-Taylor, M Milakov, J Park, R Ionescu,
-M Popescu, C Grozea, J Bergstra, J Xie, L Romaszko, B Xu, Z Chuang, and
-Y. Bengio. arXiv 2013.
+* "Challenges in Representation Learning: A report on three machine learning contests." I Goodfellow, D Erhan, PL Carrier, A Courville, M Mirza, B
+   Hamner, W Cukierski, Y Tang, DH Lee, Y Zhou, C Ramaiah, F Feng, R Li,  
+   X Wang, D Athanasakis, J Shawe-Taylor, M Milakov, J Park, R Ionescu,
+   M Popescu, C Grozea, J Bergstra, J Xie, L Romaszko, B Xu, Z Chuang, and
+   Y. Bengio. arXiv 2013.
 
-[Emotion-recognition-neural-networks](https://github.com/isseu/emotion-recognition-neural-networks)
+* [Emotion-recognition-neural-networks](https://github.com/isseu/emotion-recognition-neural-networks)
