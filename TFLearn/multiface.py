@@ -6,12 +6,13 @@ from model import EMR
 # prevents opencl usage and unnecessary logging messages
 cv2.ocl.setUseOpenCL(False)
 
-EMOTIONS = ['angry', 'disgusted', 'fearful', 'happy', 'sad', 'surprised', 'neutral']
+EMOTIONS = ['Angry', 'Disgusted', 'Fearful', 'Happy', 'Sad', 'Surprised', 'Neutral']
 
 # Initialize object of EMR class
 network = EMR()
 network.build_network()
 
+# In case you want to detect emotions on a video, provide the video file path instead of 0 for VideoCapture.
 cap = cv2.VideoCapture(0)
 font = cv2.FONT_HERSHEY_SIMPLEX
 feelings_faces = []
@@ -23,10 +24,12 @@ for index, emotion in enumerate(EMOTIONS):
 while True:
     # Again find haar cascade to draw bounding box around face
     ret, frame = cap.read()
+    if not ret:
+        break
     facecasc = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = facecasc.detectMultiScale(gray, 1.3, 5)
-    if len(faces > 0):
+    if len(faces) > 0:
         # draw box around faces
         for face in faces:
             (x,y,w,h) = face

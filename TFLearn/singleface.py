@@ -59,6 +59,8 @@ for index, emotion in enumerate(EMOTIONS):
 while True:
     # Again find haar cascade to draw bounding box around face
     ret, frame = cap.read()
+    if not ret:
+        break
     facecasc = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = facecasc.detectMultiScale(gray,scaleFactor=1.3, minNeighbors=5)
