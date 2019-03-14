@@ -38,7 +38,7 @@ There are two versions of this repository - written using **TFLearn** and **Kera
 
 * If you want to train this model or train after making changes to the model, use `python kerasmodel.py --mode train`.
 
-* If you want to view the predictions without training again, you can download my pre-trained model `(model.h5)` from [here](https://anonfile.com/i7k3x0oab4/model_h5) and then run `python kerasmodel.py --mode display`.
+* If you want to view the predictions without training again, you can download my pre-trained model `(model.h5)` from [here](https://drive.google.com/file/d/1FUn0XNOzf-nQV7QjbBPA6-8GLoHNNgv-/view?usp=sharing) and then run `python kerasmodel.py --mode display`.
 
 * The folder structure is of the form:  
   Keras:
