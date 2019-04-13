@@ -2,20 +2,22 @@
 
 ## Introduction
 
-This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This repository is an implementation of [this](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper. The model is trained on the **FER-2013** dataset which was published on International Conference on Machine Learning (ICML). This dataset consists of 35887 grayscale, 48x48 sized face images with seven emotions - angry, disgusted, fearful, happy, neutral, sad and surprised.
+This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This repository is an implementation of [this](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper. The model is trained on the **FER-2013** dataset which was published on International Conference on Machine Learning (ICML). This dataset consists of 35887 grayscale, 48x48 sized face images with **seven emotions** - angry, disgusted, fearful, happy, neutral, sad and surprised.
 
 ## Dependencies
 
-* Python 3.6, [OpenCV 3 or 4](https://opencv.org/), [Tensorflow](https://www.tensorflow.org/), [TFlearn](http://tflearn.org/), [Keras](https://keras.io/)
+* Python 3.6, [OpenCV 3 or 4](https://opencv.org/), [Tensorflow](https://www.tensorflow.org/), [TFlearn](http://tflearn.org/), [Keras.](https://keras.io/)
 * To install the required packages, run `pip install -r requirements.txt`.
 
 ## Usage
 
 There are two versions of this repository - written using **TFLearn** and **Keras**. Usage instructions for each of these versions are given below. Both versions work equally well if you want to detect emotions only one face in the image. However, I suggest you use the keras implementation, since it provides better results if there is more than one face.
 
+* First, clone the repository with `git clone https://github.com/atulapra/Emotion-detection.git` and enter the cloned folder: `cd Emotion-detection`.
+
 ### TFLearn
 
-* Clone the repository and download the **trained model** files from [here](https://drive.google.com/file/d/1rdgSdMcXIvfoPmf702UCtH6RNcvkKFu7/view?usp=sharing), extract it and copy the files into the current working directory.
+* Download the **trained model** files from [here](https://drive.google.com/file/d/1rdgSdMcXIvfoPmf702UCtH6RNcvkKFu7/view?usp=sharing), extract it and copy the files into the current working directory.
 
 * To run the program to detect emotions only in **one face**, type `python model.py singleface`.
 
@@ -49,9 +51,9 @@ There are two versions of this repository - written using **TFLearn** and **Kera
 
 * This implementation by default detects emotions on all faces in the webcam feed.
 
-* With a simple 4-layer CNN, the test accuracy stopped increasing at around 50 epochs at an accuracy of 63.2%. The top accuracies in the 2013 Kaggle competition for this were 71.16%, 69.27%, 68.82%, 67.48%.
+* With a simple 4-layer CNN, the test accuracy stopped increasing at around 50 epochs at an accuracy of 63.2%.
 
-![Accuray plot](accuracy.png)
+![Accuracy plot](accuracy.png)
 
 ## Algorithm
 
