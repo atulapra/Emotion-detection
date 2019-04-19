@@ -36,7 +36,7 @@ There are two versions of this repository - written using **TFLearn** and **Kera
 
 ### Keras
 
-* Download the FER-2013 dataset from [here](https://anonfile.com/bdj3tfoeba/data_zip) and unzip it inside the Keras folder.
+* Download the FER-2013 dataset from [here](https://anonfile.com/bdj3tfoeba/data_zip) and unzip it inside the Keras folder. This will create the folder `data`.
 
 * If you want to train this model or train after making changes to the model, use `python kerasmodel.py --mode train`.
 
