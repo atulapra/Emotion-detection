@@ -11,7 +11,7 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 ## Usage
 
-There are two versions of this repository - written using **TFLearn** and **Keras**. Usage instructions for each of these versions are given below. Both versions work equally well if you want to detect emotions only one face in the image. However, I suggest you use the keras implementation, since it provides better results if there is more than one face.
+There are two versions of this repository - written using **TFLearn** and **Keras**. Usage instructions for each of these versions are given below.
 
 * First, clone the repository with `git clone https://github.com/atulapra/Emotion-detection.git` and enter the cloned folder: `cd Emotion-detection`.
 
@@ -78,5 +78,3 @@ There are two versions of this repository - written using **TFLearn** and **Kera
    X Wang, D Athanasakis, J Shawe-Taylor, M Milakov, J Park, R Ionescu,
    M Popescu, C Grozea, J Bergstra, J Xie, L Romaszko, B Xu, Z Chuang, and
    Y. Bengio. arXiv 2013.
-
-* [Emotion-recognition-neural-networks](https://github.com/isseu/emotion-recognition-neural-networks)

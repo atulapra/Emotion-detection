@@ -34,7 +34,7 @@ while True:
         for face in faces:
             (x,y,w,h) = face
             frame = cv2.rectangle(frame,(x,y-30),(x+w,y+h+10),(255,0,0),2)
-            newimg = frame[y:y+h,x:x+w]
+            newimg = cv2.cvtColor(frame[y:y+h,x:x+w], cv2.COLOR_BGR2GRAY)
             newimg = cv2.resize(newimg, (48,48), interpolation = cv2.INTER_CUBIC) / 255.
             result = network.predict(newimg)
             if result is not None:
