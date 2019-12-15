@@ -6,12 +6,12 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 ## Dependencies
 
-* Python 3.6, [OpenCV 3 or 4](https://opencv.org/), [Tensorflow](https://www.tensorflow.org/), [TFlearn](http://tflearn.org/), [Keras.](https://keras.io/)
+* Python 3.6, [OpenCV 3 or 4](https://opencv.org/), [Tensorflow 1 or 2](https://www.tensorflow.org/), [TFlearn](http://tflearn.org/)
 * To install the required packages, run `pip install -r requirements.txt`.
 
 ## Usage
 
-There are two versions of this repository - written using **TFLearn** and **Keras**. Usage instructions for each of these versions are given below.
+There are two versions of this repository - written using **TFLearn** and **Tensorflow**. Usage instructions for each of these versions are given below. I recommend using the **Tensorflow** version since it is being updated more frequently and is currently compatible with `tensorflow-2.0`. The code makes use of the Keras API using the `tensorflow.keras` library.
 
 * First, clone the repository with `git clone https://github.com/atulapra/Emotion-detection.git` and enter the cloned folder: `cd Emotion-detection`.
 
@@ -34,18 +34,18 @@ There are two versions of this repository - written using **TFLearn** and **Kera
   * `model_1_atul.tflearn.meta` (file)
   * `haarcascade_frontalface_default.xml` (file)
 
-### Keras
+### Tensorflow
 
-* Download the FER-2013 dataset from [here](https://anonfile.com/bdj3tfoeba/data_zip) and unzip it inside the Keras folder. This will create the folder `data`.
+* Download the FER-2013 dataset from [here](https://anonfile.com/bdj3tfoeba/data_zip) and unzip it inside the `Tensorflow` folder. This will create the folder `data`.
 
-* If you want to train this model or train after making changes to the model, use `python kerasmodel.py --mode train`.
+* If you want to train this model or train after making changes to the model, use `python emotions.py --mode train`.
 
-* If you want to view the predictions without training again, you can download my pre-trained model `(model.h5)` from [here](https://drive.google.com/file/d/1FUn0XNOzf-nQV7QjbBPA6-8GLoHNNgv-/view?usp=sharing) and then run `python kerasmodel.py --mode display`.
+* If you want to view the predictions without training again, you can download my pre-trained model `(model.h5)` from [here](https://drive.google.com/file/d/1FUn0XNOzf-nQV7QjbBPA6-8GLoHNNgv-/view?usp=sharing) and then run `python emotions.py --mode display`.
 
 * The folder structure is of the form:  
   Keras:
   * data (folder)
-  * `kerasmodel.py` (file)
+  * `emotions.py` (file)
   * `haarcascade_frontalface_default.xml` (file)
   * `model.h5` (file)
 
