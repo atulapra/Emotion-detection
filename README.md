@@ -6,35 +6,14 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 ## Dependencies
 
-* Python 3.6, [OpenCV 3 or 4](https://opencv.org/), [Tensorflow 1 or 2](https://www.tensorflow.org/), [TFlearn](http://tflearn.org/)
+* Python 3, [OpenCV 3 or 4](https://opencv.org/), [Tensorflow 1 or 2](https://www.tensorflow.org/)
 * To install the required packages, run `pip install -r requirements.txt`.
 
 ## Usage
 
-There are two versions of this repository - written using **TFLearn** and **Tensorflow**. Usage instructions for each of these versions are given below. I recommend using the **Tensorflow** version since it is being updated more frequently and is currently compatible with `tensorflow-2.0`. The code makes use of the Keras API using the `tensorflow.keras` library.
+The repository is currently compatible with `tensorflow-2.0` and makes use of the Keras API using the `tensorflow.keras` library.
 
 * First, clone the repository with `git clone https://github.com/atulapra/Emotion-detection.git` and enter the cloned folder: `cd Emotion-detection`.
-
-### TFLearn
-
-* Download the **trained model** files from [here](https://drive.google.com/file/d/1rdgSdMcXIvfoPmf702UCtH6RNcvkKFu7/view?usp=sharing), extract it and copy the files into the current working directory.
-
-* To run the program to detect emotions only in **one face**, type `python model.py singleface`.
-
-* To run the program to detect emotions on all faces close to camera, type `python model.py multiface`. Note that this sometimes generates incorrect predictions.
-
-* The folder structure is of the form:  
-  TFLearn:
-  * emojis (folder)
-  * `model.py` (file)
-  * `multiface.py` (file)
-  * `singleface.py` (file)
-  * `model_1_atul.tflearn.data-00000-of-00001` (file)
-  * `model_1_atul.tflearn.index` (file)
-  * `model_1_atul.tflearn.meta` (file)
-  * `haarcascade_frontalface_default.xml` (file)
-
-### Tensorflow
 
 * Download the FER-2013 dataset from [here](https://anonfile.com/bdj3tfoeba/data_zip) and unzip it inside the `Tensorflow` folder. This will create the folder `data`.
 
@@ -43,7 +22,7 @@ There are two versions of this repository - written using **TFLearn** and **Tens
 * If you want to view the predictions without training again, you can download my pre-trained model `(model.h5)` from [here](https://drive.google.com/file/d/1FUn0XNOzf-nQV7QjbBPA6-8GLoHNNgv-/view?usp=sharing) and then run `python emotions.py --mode display`.
 
 * The folder structure is of the form:  
-  Keras:
+  Tensorflow:
   * data (folder)
   * `emotions.py` (file)
   * `haarcascade_frontalface_default.xml` (file)
@@ -51,7 +30,7 @@ There are two versions of this repository - written using **TFLearn** and **Tens
 
 * This implementation by default detects emotions on all faces in the webcam feed.
 
-* With a simple 4-layer CNN, the test accuracy stopped increasing at around 50 epochs at an accuracy of 63.2%.
+* With a simple 4-layer CNN, the test accuracy peaked at around 50 epochs at an accuracy of 63.2%.
 
 ![Accuracy plot](accuracy.png)
 
@@ -65,11 +44,9 @@ There are two versions of this repository - written using **TFLearn** and **Tens
 
 * The emotion with maximum score is displayed on the screen.
 
-## Example Outputs
+## Example Output
 
-![One face](examples/happy.png)
-
-![Mutiface](examples/multiface.png)
+![Mutiface](multiface.png)
 
 ## References
 
