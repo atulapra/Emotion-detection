@@ -6,7 +6,7 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 ## Dependencies
 
-* Python 3, [OpenCV 3 or 4](https://opencv.org/), [Tensorflow 1](https://www.tensorflow.org/)
+* Python 3, [OpenCV](https://opencv.org/), [Tensorflow](https://www.tensorflow.org/)
 * To install the required packages, run `pip install -r requirements.txt`.
 
 ## Usage
@@ -49,11 +49,11 @@ python emotions.py --mode display
 
 ## Algorithm
 
-* First, we use **haar cascade** to detect faces in each frame of the webcam feed.
+* First, the **haar cascade** method is used to detect faces in each frame of the webcam feed.
 
-* The region of image containing the face is resized to **48x48** and is passed as input to the ConvNet.
+* The region of image containing the face is resized to **48x48** and is passed as input to the CNN.
 
-* The network outputs a list of **softmax scores** for the seven classes.
+* The network outputs a list of **softmax scores** for the seven classes of emotions.
 
 * The emotion with maximum score is displayed on the screen.
 
