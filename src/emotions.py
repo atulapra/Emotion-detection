@@ -13,9 +13,9 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # command line argument
 ap = argparse.ArgumentParser()
 ap.add_argument("--mode",help="train/display")
-a = ap.parse_args()
-mode = a.mode 
+mode = ap.parse_args().mode
 
+# plots accuracy and loss curves
 def plot_model_history(model_history):
     """
     Plot Accuracy and Loss curves given the model_history
@@ -88,14 +88,12 @@ model.add(Dense(7, activation='softmax'))
 # If you want to train the same model or try other models, go for this
 if mode == "train":
     model.compile(loss='categorical_crossentropy',optimizer=Adam(lr=0.0001, decay=1e-6),metrics=['accuracy'])
-
     model_info = model.fit_generator(
             train_generator,
             steps_per_epoch=num_train // batch_size,
             epochs=num_epoch,
             validation_data=validation_generator,
             validation_steps=num_val // batch_size)
-
     plot_model_history(model_info)
     model.save_weights('model.h5')
 
