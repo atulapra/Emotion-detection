@@ -106,7 +106,7 @@ elif mode == "display":
     cv2.ocl.setUseOpenCL(False)
 
     # dictionary which assigns each label an emotion (alphabetical order)
-    emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
+    emotion_dict = {0: "Angrily Disgusted", 1: "Fearfully Angry", 2: "Fearfully Surprised", 3: "Happily Disgusted", 4: "Happily Surprised", 5: "Sadly Disgusted", 6: "Sadly Angry"}
 
     # start the webcam feed
     cap = cv2.VideoCapture(0)
