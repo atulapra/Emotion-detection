@@ -46,7 +46,7 @@ train_dir = 'data/train'
 val_dir = 'data/test'
 
 num_train = 960
-num_val = 7178
+num_val = 240
 batch_size = 64
 num_epoch = 50
 
