@@ -13,7 +13,7 @@ def atoi(s):
 
 # making folders
 outer_names = ['test','train']
-inner_names = ['Angrily Disgusted', 'Fearfully Angry', 'Fearfully Surprised', 'Happily Disgusted', 'Happily Surprised', 'Sadly Angry', 'Sadly Disgusted']
+inner_names = ['Angrily Disgusted', 'Angrily Surprised','Disgustedly Surprised' 'Fearfully Angry','Fearfully Disgusted', 'Fearfully Surprised', 'Happily Disgusted', 'Happily Surprised',  'Sadly Disgusted','Sadly Angry','Sadly Fearful','Sadly Surprised']
 os.makedirs('data', exist_ok=True)
 for outer_name in outer_names:
     os.makedirs(os.path.join('data',outer_name), exist_ok=True)
@@ -28,6 +28,11 @@ Happily_Disgusted = 0
 Happily_Surprised = 0
 Sadly_Angry = 0
 Sadly_Disgusted = 0
+Angrily_Surprised = 0
+Fearfully_Disgusted = 0
+Sadly_Fearful =0
+Sadly_Surprised = 0
+Disgustedly_Surprised =0
 Angrily_Disgusted_test = 0
 Fearfully_Angry_test = 0
 Fearfully_Surprised_test = 0
@@ -35,6 +40,12 @@ Happily_Disgusted_test = 0
 Happily_Surprised_test = 0
 Sadly_Angry_test = 0
 Sadly_Disgusted_test = 0
+Angrily_Surprised_test = 0
+Fearfully_Disgusted_test = 0
+Sadly_Fearful_test = 0
+Sadly_Surprised_test = 0
+Disgustedly_Surprised_test =0
+#28709
 
 df = pd.read_csv('./fer2013.csv')
 mat = np.zeros((48,48),dtype=np.uint8)
@@ -54,28 +65,54 @@ for i in tqdm(range(len(df))):
     img = Image.fromarray(mat)
 
     # train
-    if i < 28709:
+    if i < 960:
         if df['emotion'][i] == 0:
             img.save('train/Angrily Disgusted/im'+str(Angrily_Disgusted)+'.png')
             Angrily_Disgusted += 1
+        
         elif df['emotion'][i] == 1:
+            img.save('train/Angrily Surprised/im'+str(Angrily_Surprised)+'.png')
+            Angrily_Surprised += 1
+        
+        elif df['emotion'][i] == 2:
+            img.save('train/Disgustedly Surprised/im'+str(Disgustedly_Surprised)+'.png')
+            Disgustedly_Surprised += 1
+        
+        elif df['emotion'][i] == 3:
             img.save('train/Fearfully Angry/im'+str(Fearfully_Angry)+'.png')
             Fearfully_Angry += 1
-        elif df['emotion'][i] == 2:
+        
+        elif df['emotion'][i] == 4:
+            img.save('train/Fearfully Disgusted/im'+str(Fearfully_Disgusted)+'.png')
+            Happily_Surprised += 1
+        
+        elif df['emotion'][i] == 5:
             img.save('train/Fearfully Surprised/im'+str(Fearfully_Surprised)+'.png')
             Fearfully_Surprised += 1
-        elif df['emotion'][i] == 3:
+        
+        elif df['emotion'][i] == 6:
             img.save('train/Happily Disgusted/im'+str(Happily_Disgusted)+'.png')
             Happily_Disgusted += 1
-        elif df['emotion'][i] == 4:
+        
+        elif df['emotion'][i] == 7:
             img.save('train/Happily Surprised/im'+str(Happily_Surprised)+'.png')
             Happily_Surprised += 1
-        elif df['emotion'][i] == 5:
-            img.save('train/Sadly Angry/im'+str(Sadly_Angry)+'.png')
-            Sadly_Angry += 1
-        elif df['emotion'][i] == 6:
+        
+        elif df['emotion'][i] == 8:
             img.save('train/Sadly Disgusted/im'+str(Sadly_Disgusted)+'.png')
             Sadly_Disgusted += 1
+        
+        elif df['emotion'][i] == 9:
+            img.save('train/Sadly Angry/im'+str(Sadly_Angry)+'.png')
+            Sadly_Angry += 1
+        
+        elif df['emotion'][i] == 10:
+            img.save('train/Sadly Fearful/im'+str(Sadly_Fearful)+'.png')
+            Sadly_Fearful += 1
+        
+        elif df['emotion'][i] == 11:
+            img.save('train/Sadly Surprised/im'+str(Sadly_Surprised)+'.png')
+            Sadly_Surprised += 1
 
     # test
     else:
@@ -83,22 +120,42 @@ for i in tqdm(range(len(df))):
             img.save('test/Angrily Disgusted/im'+str(Angrily_Disgusted_test)+'.png')
             Angrily_Disgusted_test += 1
         elif df['emotion'][i] == 1:
+            img.save('test/Angrily Surprised/im'+str(Angrily_Surprised_test)+'.png')
+            Angrily_Surprised_test += 1
+        elif df['emotion'][i] == 2:
+            img.save('test/Disgustedly Surprised/im'+str(Disgustedly_Surprised_test)+'.png')
+            Disgustedly_Surprised_test += 1
+        elif df['emotion'][i] == 3:
             img.save('test/Fearfully Angry/im'+str(Fearfully_Angry_test)+'.png')
             Fearfully_Angry_test += 1
-        elif df['emotion'][i] == 2:
-            img.save('test/Fearfully Surprised/im'+str(Fearfully_Surprised_test)+'.png')
-            Fearfully_Surprised_test += 1
-        elif df['emotion'][i] == 3:
-            img.save('test/Happily Disgusted/im'+str(Happily_Disgusted_test)+'.png')
-            Happily_Disgusted_test += 1
         elif df['emotion'][i] == 4:
-            img.save('test/Happily Surprised/im'+str(Happily_Surprised_test)+'.png')
+            img.save('test/Fearfully Disgusted/im'+str(Fearfully_Disgusted_test)+'.png')
             Happily_Surprised_test += 1
         elif df['emotion'][i] == 5:
-            img.save('test/Sadly Angry/im'+str(Sadly_Angry_test)+'.png')
-            Sadly_Angry_test += 1
+            img.save('test/Fearfully Surprised/im'+str(Fearfully_Surprised_test)+'.png')
+            Fearfully_Surprised_test += 1
         elif df['emotion'][i] == 6:
+            img.save('test/Happily Disgusted/im'+str(Happily_Disgusted_test)+'.png')
+            Happily_Disgusted_test += 1
+
+        elif df['emotion'][i] == 7:
+            img.save('test/Happily Surprised/im'+str(Happily_Surprised_test)+'.png')
+            Happily_Surprised_test += 1
+
+        elif df['emotion'][i] == 8:
             img.save('test/Sadly Disgusted/im'+str(Sadly_Disgusted_test)+'.png')
             Sadly_Disgusted_test += 1
+
+        elif df['emotion'][i] == 9:
+            img.save('test/Sadly Angry/im'+str(Sadly_Angry_test)+'.png')
+            Sadly_Anry_test += 1
+
+        elif df['emotion'][i] == 10:
+            img.save('test/Sadly Fearful/im'+str(Sadly_Fearful_test)+'.png')
+            Sadly_Fearful_test += 1
+
+        elif df['emotion'][i] == 11:
+            img.save('test/Sadly Surprised/im'+str(Sadly_Surprised_test)+'.png')
+            Sadly_Surprised_test += 1
 
 print("Done!")
