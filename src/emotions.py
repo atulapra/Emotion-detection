@@ -45,7 +45,7 @@ def plot_model_history(model_history):
 train_dir = 'data/train'
 val_dir = 'data/test'
 
-num_train = 28709
+num_train = 960
 num_val = 7178
 batch_size = 64
 num_epoch = 50
@@ -106,7 +106,8 @@ elif mode == "display":
     cv2.ocl.setUseOpenCL(False)
 
     # dictionary which assigns each label an emotion (alphabetical order)
-    emotion_dict = {0: "Angrily Disgusted", 1: "Fearfully Angry", 2: "Fearfully Surprised", 3: "Happily Disgusted", 4: "Happily Surprised", 5: "Sadly Disgusted", 6: "Sadly Angry"}
+    emotion_dict = {0: "Angrily Disgusted", 1:"Angrily Surprised",2:"Disgustedly Surprised", 3: "Fearfully Angry", 4:"Fearfully Disgusted", 5: "Fearfully Surprised", 6: "Happily Disgusted", 7: "Happily Surprised", 8: "Sadly Disgusted", 9: "Sadly Angry",
+    10: "Sadly Fearful", 11:"Sadly Surprised"}
 
     # start the webcam feed
     cap = cv2.VideoCapture(0)
