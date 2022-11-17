@@ -63,10 +63,6 @@ python emotions.py --mode display
 
 * The emotion with maximum score is displayed on the screen.
 
-## Example Output
-
-![Mutiface](imgs/multiface.png)
-
 ## References
 
 * "Challenges in Representation Learning: A report on three machine learning contests." I Goodfellow, D Erhan, PL Carrier, A Courville, M Mirza, B
