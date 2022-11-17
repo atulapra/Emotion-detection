@@ -20,7 +20,7 @@ git clone https://github.com/atulapra/Emotion-detection.git
 cd Emotion-detection
 ```
 
-* Download the FER-2013 dataset from [here](https://drive.google.com/file/d/1X60B-uR3NtqPd4oosdotpbDgy8KOfUdr/view?usp=sharing) and unzip it inside the `src` folder. This will create the folder `data`.
+* Download the FER-2013 dataset inside the `src` folder.
 
 * If you want to train this model, use:  
 
@@ -49,7 +49,7 @@ python emotions.py --mode display
 
 ## Data Preparation (optional)
 
-* The [original FER2013 dataset in Kaggle](https://www.kaggle.com/deadskull7/fer2013) is available as a single csv file. I had converted into a dataset of images in the PNG format for training/testing and provided this as the dataset in the previous section.
+* The [original FER2013 dataset in Kaggle](https://www.kaggle.com/deadskull7/fer2013) is available as a single csv file. I had converted into a dataset of images in the PNG format for training/testing.
 
 * In case you are looking to experiment with new datasets, you may have to deal with data in the csv format. I have provided the code I wrote for data preprocessing in the `dataset_prepare.py` file which can be used for reference.
 
