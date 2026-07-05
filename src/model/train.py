@@ -1,15 +1,18 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
 import numpy as np
 import argparse
 import matplotlib.pyplot as plt
 import cv2
+from tensorflow.keras import Input
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.layers import MaxPooling2D
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # command line argument
 ap = argparse.ArgumentParser()
@@ -28,7 +31,9 @@ def plot_model_history(model_history):
     axs[0].set_title('Model Accuracy')
     axs[0].set_ylabel('Accuracy')
     axs[0].set_xlabel('Epoch')
-    axs[0].set_xticks(np.arange(1,len(model_history.history['accuracy'])+1),len(model_history.history['accuracy'])/10)
+    accuracy_epochs = len(model_history.history['accuracy'])
+    accuracy_ticks = np.arange(1, accuracy_epochs + 1)
+    axs[0].set_xticks(accuracy_ticks[::max(1, accuracy_epochs // 10)])
     axs[0].legend(['train', 'val'], loc='best')
     # summarize history for loss
     axs[1].plot(range(1,len(model_history.history['loss'])+1),model_history.history['loss'])
@@ -36,7 +41,9 @@ def plot_model_history(model_history):
     axs[1].set_title('Model Loss')
     axs[1].set_ylabel('Loss')
     axs[1].set_xlabel('Epoch')
-    axs[1].set_xticks(np.arange(1,len(model_history.history['loss'])+1),len(model_history.history['loss'])/10)
+    loss_epochs = len(model_history.history['loss'])
+    loss_ticks = np.arange(1, loss_epochs + 1)
+    axs[1].set_xticks(loss_ticks[::max(1, loss_epochs // 10)])
     axs[1].legend(['train', 'val'], loc='best')
     fig.savefig('plot.png')
     plt.show()
@@ -69,11 +76,17 @@ validation_generator = val_datagen.flow_from_directory(
 
 # Create the model
 model = Sequential()
-
-model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=(48,48,1)))
+model.add(Input(shape=(48, 48, 1)))
+model.add(Conv2D(32, kernel_size=(3, 3), activation='relu'))
 model.add(Conv2D(64, kernel_size=(3, 3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
+
+# model output directory
+repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+models_dir = os.path.join(repo_root, 'models')
+os.makedirs(models_dir, exist_ok=True)
+model_path = os.path.join(models_dir, 'model.h5')
 
 model.add(Conv2D(128, kernel_size=(3, 3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
@@ -88,19 +101,49 @@ model.add(Dense(7, activation='softmax'))
 
 # If you want to train the same model or try other models, go for this
 if mode == "train":
-    model.compile(loss='categorical_crossentropy',optimizer=Adam(lr=0.0001, decay=1e-6),metrics=['accuracy'])
-    model_info = model.fit_generator(
+    model.compile(
+        loss='categorical_crossentropy',
+        optimizer=Adam(learning_rate=0.0001),
+        metrics=['accuracy']
+    )
+    model_info = model.fit(
             train_generator,
             steps_per_epoch=num_train // batch_size,
             epochs=num_epoch,
             validation_data=validation_generator,
             validation_steps=num_val // batch_size)
     plot_model_history(model_info)
-    model.save_weights('model.h5')
+    # print and save final accuracies
+    try:
+        final_train_acc = model_info.history['accuracy'][-1]
+    except Exception:
+        final_train_acc = None
+    try:
+        final_val_acc = model_info.history.get('val_accuracy', [None])[-1]
+    except Exception:
+        final_val_acc = None
+    if final_train_acc is not None:
+        print(f"Final training accuracy: {final_train_acc:.4f}")
+    else:
+        print("Final training accuracy: not available")
+    if final_val_acc is not None:
+        print(f"Final validation accuracy: {final_val_acc:.4f}")
+    else:
+        print("Final validation accuracy: not available")
+    metrics_path = os.path.join(models_dir, 'final_metrics.txt')
+    try:
+        with open(metrics_path, 'w') as f:
+            if final_train_acc is not None:
+                f.write(f"final_train_accuracy={final_train_acc}\n")
+            if final_val_acc is not None:
+                f.write(f"final_val_accuracy={final_val_acc}\n")
+    except Exception as e:
+        print('Failed to write final metrics:', e)
+    model.save(model_path)
 
 # emotions will be displayed on your face from the webcam feed
 elif mode == "display":
-    model.load_weights('model.h5')
+    model.load_weights(model_path)
 
     # prevents openCL usage and unnecessary logging messages
     cv2.ocl.setUseOpenCL(False)
